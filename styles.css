@@ -102,29 +102,24 @@ a {
     height: 22px;
 }
 
-.icon1-1 {
+.icon1-1, .icon1-2 {
     position: absolute;
     right: 0;
     width: 12px;
     height: 4px;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
     background-color: transparent;
-    border-width: 2px 2px 0 2px;
     border-style: solid;
 }
-
+.icon1-1 {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-width: 2px 2px 0 2px;
+}
 .icon1-2 {
-    position: absolute;
-    right: 0;
     bottom: 0;
-    width: 12px;
-    height: 4px;
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
-    background-color: transparent;
     border-width: 0 2px 2px 2px;
-    border-style: solid;
 }
 
 .icon1-3 {
@@ -145,23 +140,19 @@ a {
     background-color: black;
 }
 
-.icon1-4-1 {
+.icon1-4-1, .icon1-4-2 {
     position: absolute;
     right: 0px;
-    bottom: -0.7px;
     width: 2px;
     height: 7px;
     background-color: inherit;
+}
+.icon1-4-1 {
+    bottom: -0.7px;
     transform: rotate(-45deg);
 }
-
 .icon1-4-2 {
-    position: absolute;
-    right: 0px;
     top: -0.7px;
-    width: 2px;
-    height: 7px;
-    background-color: inherit;
     transform: rotate(45deg);
 }
 
@@ -172,28 +163,25 @@ a {
     margin: 0 23px;
 }
 
-.icon2-1 {
+.icon2-1, .icon2-2 {
     position: absolute;
-    left: 5px;
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
     background-color: transparent;
     border-width: 2px;
     border-style: solid;
 }
-
+.icon2-1 {
+    left: 5px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+}
 .icon2-2 {
-    position: absolute;
     right: 0;
     bottom: 0;
     width: 15px;
     height: 7px;
     border-top-left-radius: 7px;
     border-top-right-radius: 7px;
-    background-color: transparent;
-    border-width: 2px;
-    border-style: solid;
 }
 
 #icon:hover, .icon1:hover, .icon2:hover {
@@ -208,10 +196,21 @@ a {
     background-color: #BF0628;
 }
 
+#basket-window {
+	display: none;
+	position: absolute;
+	top: 48px;
+	box-shadow: 0px 0px 6px 0px darkgray;
+	padding: 3px 6px;
+}
+#icon:hover ~ #basket-window {
+	display: flex;
+}
+
 /* стили для топ-бара */
 
 .topbar {
-    margin-bottom: 50px;
+    margin-bottom: 35px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -250,12 +249,16 @@ a {
     border-radius: 5px;
 }
 @media (max-width: 660px) {
-    #catalog {margin-bottom: 20px;}
+    #catalog, #contacts {margin-bottom: 35px;}
 }
 
 #hamburger {
     width: 30px;
     margin-left: 20px;
+	color: white;
+}
+#hamburger hr {
+	color: white;
 }
 
 #catalog:hover {
@@ -301,11 +304,13 @@ a {
     cursor: pointer;
     transition: 1s;
 }
-
-#contacts{
-    margin-left: 20px;
+#loupe img {
+	width: 24px;
 }
 
+#contacts {
+    margin-left: 20px;
+}
 #contacts pre {
     font-family: 'FuturaBookC';
     font-size: 16px;
@@ -325,25 +330,34 @@ a {
 	height: 50px;
     margin-bottom: 50px;
 }
-
 .navbar-inner p {
-    font-size: 24px;
+    font-size: 20px;
     color: white;
     padding: 10px 0;
+
 }
 .delete {
 	display: none;
 }
 .delete-new {
 	display: inline;
-	font-size: 24px;
+	font-size: 22px;
 	font-weight: bold;
 	margin: 0 10px;
 }
-
+@keyframes menu-anime {
+	0% {
+		color: white;
+	}
+	100% {
+		color: #BF0628;
+	 }
+}
 .navbar-inner p:hover {
     color: #BF0628;
 	cursor: pointer;
+	animation-name: menu-anime;
+	animation-duration: 1s;
 }
 @media (min-width: 768px) {
     .navbar-inner p {display: none;}
